@@ -1,0 +1,24 @@
+<form ng-submit="doLogin()">
+    <div class="list">
+        <div>
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="text" ng-model="loginData.email">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Senha</span>
+                <input type="password" ng-model="loginData.password">
+            </label>
+            <label class="item">
+                <button class="button button-block button-positive" type="submit">Log in</button>
+            </label>
+        </div>
+    </div>
+    <div class="row text-center">
+        <a class="col" href="#/lostpassword">Perdi minha senha</a>
+        <a class="col" href="#/facebook">Entrar com facebook</a>
+    </div>
+
+
+
+</form>
