@@ -19,21 +19,21 @@
     <ion-content>
       <ion-list>
         <ion-item>
-            {{"Vitor"}}
+            {{user.name}}
         </ion-item>
-        <ion-item menu-close href="#/login">
+        <ion-item menu-close ui-sref="login">
           Login
         </ion-item>
-        <ion-item menu-close href="#/register">
+        <ion-item menu-close ui-sref="register">
           Register
         </ion-item>
-        <ion-item menu-close href="#/app/search">
+        <ion-item menu-close ui-sref="app.search">
           Search
         </ion-item>
-        <ion-item menu-close href="#/app/services">
+        <ion-item menu-close ui-sref="app.services">
           Browse
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item menu-close ui-sref="app.playlists">
           Playlists
         </ion-item>
         <ion-item menu-close ng-click="doLogout()">

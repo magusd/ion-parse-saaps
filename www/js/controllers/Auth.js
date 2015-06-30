@@ -6,13 +6,16 @@ angular.module('saaps.controllers')
     // listen for the $ionicView.enter event:
     //$scope.$on('$ionicView.enter', function(e) {
     //});
+
     $scope.lostPassword = false;
     // Form data for the login modal
     $scope.loginData = {};
     $scope.registerData = {};
     $scope.lostPasswordData = {};
 
-
+    $scope.$on('$ionicView.enter',function(e){
+        $scope.user = Session.getUser();
+    });
 
 
     // Perform the login action when the user submits the login form
@@ -42,14 +45,26 @@ angular.module('saaps.controllers')
 
     };
     $scope.doRegister = function() {
+        if(!$scope.registerForm.$valid){
+            alert('verifique seus dados');
+            return;
+        }
+        $scope.registerData.username = $scope.registerData.email;
         Auth.register($scope.registerData)
             .success(function(data, status, headers, config) {
-                alert(data.objectId);
-                alert(data.sessionToken);
-                console.log(data,status,headers,config);
+                var session = data;
+                var user = config.data;
+                user.createdAt = session.createdAt;
+                user.objectId = session.objectId;
+                user.sessionToken = session.sessionToken;
+
+                Session.setUser(user);
+                $state.go('app.services');
             }).
             error(function(data, status, headers, config) {
                 switch (data.code){
+                    case 125:
+                        alert('email inválido');
                     case 202:
                         alert('username já cadastrado');
                         break;
@@ -80,6 +95,11 @@ angular.module('saaps.controllers')
             });
     };
     $scope.doLogout = function(){
+
+        Session.deleteUser();
+        $state.go('facebook');
+        /*
+
         Auth.logout(Session.getUser())
             .success(function(data, status, headers, config){
                 $state.go('facebook');
@@ -88,6 +108,6 @@ angular.module('saaps.controllers')
             .error(function(data, status, headers, config){
                 console.log(data, status, headers, config);
             });
-
+        */
     }
 });

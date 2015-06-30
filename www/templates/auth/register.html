@@ -1,24 +1,33 @@
-<form ng-submit="doRegister()">
-  <div class="list">
-    <label class="item item-input">
-      <span class="input-label">Username</span>
-      <input type="text" ng-model="registerData.username">
-    </label>
-    <label class="item item-input">
-      <span class="input-label">Email</span>
-      <input type="text" ng-model="registerData.email">
-    </label>
-    <label class="item item-input">
-      <span class="input-label">Phone</span>
-      <input type="text" ng-model="registerData.phone">
-    </label>
-    <label class="item item-input">
-      <span class="input-label">Password</span>
-      <input type="password" ng-model="registerData.password">
-    </label>
+<form name="registerForm" ng-submit="doRegister()">
+    <div class="list">
+        <label class="item item-input">
+            <span class="input-label">Nome</span>
+            <input type="text" ng-model="registerData.name" required>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">CPF</span>
+            <input type="text" ng-model="registerData.cpf" ui-br-cpf-mask required>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Telefone</span>
+            <input type="text" name="phone" ng-model="registerData.phone" ui-br-phone-number required>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="email" ng-model="registerData.email" required>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Password</span>
+            <input type="password" ng-model="registerData.password" required>
+        </label>
 
-    <label class="item">
-      <button class="button button-block button-positive" type="submit">Register</button>
-    </label>
-  </div>
+        <label class="item">
+            <button class="button button-block button-positive" type="submit">Register</button>
+        </label>
+    </div>
 </form>
+
+<div class="row text-center">
+    <a class="col" ui-sref="login">Entrar com email</a>
+    <a class="col" ui-sref="facebook">Entrar com facebook</a>
+</div>

@@ -1,1 +1,7 @@
 /* Empty. Add your own CSS if you like */
+input.ng-dirty.ng-invalid {
+    color: #8B0000;
+}
+input.ng-dirty.ng-valid {
+    color: #006600;
+}

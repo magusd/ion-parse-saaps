@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('saaps', ['ionic', 'saaps.controllers','saaps.services'])
+angular.module('saaps', ['ionic', 'saaps.controllers','saaps.services','ui.utils.masks'])
 
     .run(function($ionicPlatform, $rootScope, $state, Session) {
         $ionicPlatform.ready(function() {
@@ -16,7 +16,8 @@ angular.module('saaps', ['ionic', 'saaps.controllers','saaps.services'])
             if (!Session.getUser().objectId === undefined){
                 $state.go('login');
             }else{
-                $state.go('app.services');
+
+                //$state.go('app.services');
             }
         });
 
