@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.saapsclient252639" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>saaps-client</name>
+<widget id="br.com.deixacomigo.clientapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Deixa Comigo</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Descrição do app.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
+  <author email="vitor.lobs@gmail.com" href="http://ionicframework.com/">
       Ionic Framework Team
     </author>
   <content src="index.html"/>

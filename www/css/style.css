@@ -5,3 +5,13 @@ input.ng-dirty.ng-invalid {
 input.ng-dirty.ng-valid {
     color: #006600;
 }
+
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll {
+    height: 100%;
+}

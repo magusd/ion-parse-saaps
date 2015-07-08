@@ -1,0 +1,18 @@
+<ion-view view-title="Endereços">
+    <ion-content>
+        <div class="list" id="list">
+            <div class="item item-divider">
+                Endereços cadastrados
+            </div>
+
+            <a ng-repeat="addr in addresses" class="item item-icon-right">
+                {{addr.nick}}
+                <i ng-click="remove(addr)" class="icon ion-close-circled assertive"></i>
+            </a>
+            <a ui-sref="app.newAddress" class="item item-balanced item-icon-right text-center">
+                Adicionar Novo Endereço
+            </a>
+        </div>
+
+    </ion-content>
+</ion-view>

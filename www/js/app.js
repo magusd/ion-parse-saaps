@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('saaps', ['ionic', 'saaps.controllers','saaps.services','ui.utils.masks'])
+angular.module('saaps', ['ionic', 'saaps.controllers','saaps.services','ui.utils.masks','Mac'])
 
     .run(function($ionicPlatform, $rootScope, $state, Session) {
         $ionicPlatform.ready(function() {

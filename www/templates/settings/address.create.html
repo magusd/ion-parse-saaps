@@ -1,0 +1,52 @@
+<ion-view view-title="Novo Endereço">
+    <ion-content>
+        <div class="list">
+
+            <div class="item">
+                <label class="item item-input">
+                    <input name="cep" type="text" ng-change="centerOnAddress()" ng-model="formData.cep" placeholder="Nome da rua, número, bairro, cidade">
+                </label>
+                <a ng-repeat="addr in addressResults" ng-click="pick(addr)" class="item item-icon-right">
+                    {{addr.formatted_address}}
+                </a>
+            </div>
+
+
+        </div>
+        <div class="list list-inset" ng-show="parseData.valid">
+            <div class="item text-center balanced">
+                Confira seu endereço:
+            </div>
+            <div class="item item-input">
+                <input type="text" placeholder="Dê um nome para este endereço" ng-model="parseData.components.nick"/>
+            </div>
+            <div class="item" ng-show="parseData.components.neighborhood">
+                {{parseData.components.neighborhood}}
+            </div>
+            <div class="item" ng-show="parseData.components.city">
+                {{parseData.components.city}}
+            </div>
+            <div class="item" ng-show="parseData.components.state">
+                {{parseData.components.state}}
+            </div>
+            <div class="item item-input">
+                <input type="text" placeholder="Rua" ng-model="parseData.components.street"/>
+            </div>
+            <div class="item item-input">
+                <input type="text" placeholder="Número" ng-model="parseData.components.streetNumber"/>
+            </div>
+            <div class="item item-input">
+                <input type="text" placeholder="Complemento" ng-model="parseData.components.complement"/>
+            </div>
+            <a ng-click="save()" class="item item-balanced item-icon-right text-center">
+
+                Gravar
+            </a>
+        </div>
+        <div class="row text-center">
+                <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Me encontre</a>
+        </div>
+
+        <div id="map"></div>
+    </ion-content>
+</ion-view>

@@ -40,7 +40,7 @@ angular.module('saaps.controllers')
     };
     // Perform the login action when the user submits the login form
     $scope.doLoginFacebook = function() {
-        alert('Doing facebook login');
+        Auth.facebook();
         //register user with fb login in authData
 
     };

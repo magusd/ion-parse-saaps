@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('saaps.services')
+    .constant("FACEBOOK_APP_ID", "851341254973418")
     .factory('Auth',['$http','PARSE_CREDENTIALS',function($http,PARSE_CREDENTIALS){
         return {
             /**
@@ -79,6 +80,9 @@ angular.module('saaps.services')
                         'X-Parse-Session-Token': data.sessionToken
                     }
                 });
+            },
+            facebook:function(){
+                alert('Doing facebook login');
             }
         }
     }]);
