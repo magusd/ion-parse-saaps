@@ -19,25 +19,30 @@ angular.module('saaps.services')
                 });
             },
 
+            update: function(objectId, data, sessionToken){
+                return $http.put('https://api.parse.com/1/users/'+objectId,data,{
+                    headers:{
+                        'X-Parse-Application-Id': PARSE_CREDENTIALS.APP_ID,
+                        'X-Parse-REST-API-Key':PARSE_CREDENTIALS.REST_API_KEY,
+                        'Content-Type':'application/json',
+                        'X-Parse-Session-Token': sessionToken
+                    }
+                });
+            },
+
             /**
              * Returns the user or false if sessionToken has expired or is incorrect
              * @param sessionToken
              * @returns {*}
              */
             check:function(sessionToken){
-                return $http.get('https://api.parse.com/1/users/me',data,{
+                return $http.get('https://api.parse.com/1/users/me',{
                     headers:{
                         'X-Parse-Application-Id': PARSE_CREDENTIALS.APP_ID,
                         'X-Parse-REST-API-Key':PARSE_CREDENTIALS.REST_API_KEY,
-                        'X-Parse-Session-Token:': sessionToken
+                        'X-Parse-Session-Token': sessionToken
                     }
-                })
-                    .success(function(data){
-                        return data;
-                    })
-                    .error(function(){
-                        return false;
-                    });
+                });
             },
             /**
              * Attempts to login user
@@ -81,8 +86,17 @@ angular.module('saaps.services')
                     }
                 });
             },
-            facebook:function(){
-                alert('Doing facebook login');
+            facebook:function(authData){
+                return $http({
+                    url: 'https://api.parse.com/1/users',
+                    data: authData,
+                    method: 'POST',
+                    headers:{
+                        'X-Parse-Application-Id': PARSE_CREDENTIALS.APP_ID,
+                        'X-Parse-REST-API-Key':PARSE_CREDENTIALS.REST_API_KEY,
+                        'Content-Type' : 'application/json'
+                    }
+                });
             }
         }
     }]);

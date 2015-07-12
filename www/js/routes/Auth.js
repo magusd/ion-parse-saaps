@@ -14,7 +14,7 @@ angular.module('saaps')
             .state('facebook', {
                 url: "/facebook",
                 templateUrl: "templates/auth/facebookLogin.html",
-                controller: 'AuthCtrl',
+                controller: 'FacebookCtrl',
                 data: {
                     authenticate: false
                 }

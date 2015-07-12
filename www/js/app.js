@@ -2,7 +2,7 @@
 
 angular.module('saaps', ['ionic', 'saaps.controllers','saaps.services','ui.utils.masks','Mac'])
 
-    .run(function($ionicPlatform, $rootScope, $state, Session) {
+    .run(function($ionicPlatform, $rootScope, $state, Session, Helpers) {
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -13,21 +13,32 @@ angular.module('saaps', ['ionic', 'saaps.controllers','saaps.services','ui.utils
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
-            if (!Session.getUser().objectId === undefined){
-                $state.go('login');
-            }else{
 
-                //$state.go('app.services');
-            }
+            if(Helpers.checkAuth())
+                $state.go('facebook');
+            if(Helpers.checkProfile())
+                $state.go('app.profile');
+
+        });
+        $ionicPlatform.on("resume", function(){
+            if(Helpers.checkAuth())
+                $state.go('facebook');
+            if(Helpers.checkProfile())
+                $state.go('app.profile');
         });
 
         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
             //Checks if state requires auth
             if (toState.data.authenticate) {
-                //Check if user has auth
-                if(Session.getUser().objectId === undefined){
+                if(Helpers.checkAuth()){
                     event.preventDefault();
-                    $state.go('login');
+                    $state.go('facebook');
+                }
+                if(toState.name != 'app.profile'){
+                    if(Helpers.checkProfile()) {
+                        event.preventDefault();
+                        $state.go('app.profile');
+                    }
                 }
             }
         });

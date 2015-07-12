@@ -1,5 +1,5 @@
 angular.module('saaps.controllers')
-.controller('AuthCtrl', function($scope, $state, Auth, Session) {
+.controller('AuthCtrl', function($scope, $ionicLoading, $ionicPopup, $state, Auth, Session) {
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
     // To listen for when this page is active (for example, to refresh data),
@@ -95,9 +95,21 @@ angular.module('saaps.controllers')
             });
     };
     $scope.doLogout = function(){
-
-        Session.deleteUser();
-        $state.go('facebook');
+        var confirmPopup = $ionicPopup.confirm({
+            title: 'Log out',
+            template: 'Você tem certeza que quer sair?'
+        });
+        confirmPopup.then(function(res) {
+            if (res) {
+                //logout
+                $ionicLoading.show({
+                    template: 'Saindo...'
+                });
+                Session.deleteUser();
+                $state.go('facebook');
+                $ionicLoading.hide();
+            }
+        });
         /*
 
         Auth.logout(Session.getUser())

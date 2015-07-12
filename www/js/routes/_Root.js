@@ -9,7 +9,7 @@ angular.module('saaps')
                 templateUrl: "templates/menu.html",
                 controller: 'AuthCtrl',
                 data: {
-                    authenticate: false
+                    authenticate: true
                 }
             })
             .state('app.search', {
@@ -20,7 +20,7 @@ angular.module('saaps')
                     }
                 },
                 data: {
-                    authenticate: false
+                    authenticate: true
                 }
             })
             .state('app.playlists', {
@@ -32,7 +32,7 @@ angular.module('saaps')
                     }
                 },
                 data: {
-                    authenticate: false
+                    authenticate: true
                 }
             })
             .state('app.single', {
@@ -44,7 +44,7 @@ angular.module('saaps')
                     }
                 },
                 data: {
-                    authenticate: false
+                    authenticate: true
                 }
             });
         // if none of the above states are matched, use this as the fallback

@@ -1,0 +1,41 @@
+<ion-view view-title="Configurações">
+    <ion-content>
+        <div class="list" ng-form name="$parent.myForm">
+            <li class="item item-input">
+                <div class="input-label">
+                    Nome
+                </div>
+                <input type="text" ng-model="user.name" required/>
+            </li>
+            <li class="item item-input">
+                <div class="input-label">
+                    Email
+                </div>
+                <input type="email" ng-model="user.email" required/>
+            </li>
+            <li class="item item-input">
+                <div class="input-label">
+                    CPF
+                </div>
+                <input type="text" ng-model="user.cpf" ui-br-cpf-mask required/>
+            </li>
+            <li class="item item-input">
+                <div class="input-label">
+                    Telephone
+                </div>
+                <input type="text" ng-model="user.phone" ui-br-phone-number required/>
+            </li>
+
+            <li class="item">
+                <p ng-show="user.authData">facebook conectado</p>
+                <p ng-hide="user.authData">conectar facebook</p>
+            </li>
+            <a ng-click="save()" class="item item-balanced item-icon-right text-center">
+                Gravar
+            </a>
+            <a ng-click="cancel()" class="item item-icon-right text-center">
+                Cancelar
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

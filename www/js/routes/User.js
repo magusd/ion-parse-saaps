@@ -11,7 +11,20 @@ angular.module('saaps')
                     }
                 },
                 data: {
-                    authenticate: false
+                    authenticate: true
+                }
+            })
+            .state('app.profile', {
+                url: "/settings/profile",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/settings/profile.html",
+                        controller: "ProfileCtrl"
+                    }
+                },
+                data: {
+                    authenticate: true,
+                    fullProfile: true
                 }
             })
             .state('app.address', {
@@ -23,7 +36,7 @@ angular.module('saaps')
                     }
                 },
                 data: {
-                    authenticate: false
+                    authenticate: true
                 }
             })
             .state('app.newAddress', {
@@ -35,7 +48,7 @@ angular.module('saaps')
                     }
                 },
                 data: {
-                    authenticate: false
+                    authenticate: true
                 }
             });
     });

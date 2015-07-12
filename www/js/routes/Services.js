@@ -11,7 +11,7 @@ angular.module('saaps')
                     }
                 },
                 data: {
-                    authenticate: false
+                    authenticate: true
                 }
             });
     });

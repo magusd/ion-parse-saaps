@@ -8,5 +8,4 @@ angular.module('saaps.controllers')
             { title: 'Rap', id: 5 },
             { title: 'Cowbell', id: 6 }
         ];
-        console.log($scope.playlists);
     });
