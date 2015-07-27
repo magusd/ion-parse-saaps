@@ -25,6 +25,16 @@ angular.module('saaps.services')
                     }
                 );
             },
+            show:function(classname,data,params){
+                return $http.get(url(classname,data),{
+                        headers:{
+                            'X-Parse-Application-Id': PARSE_CREDENTIALS.APP_ID,
+                            'X-Parse-REST-API-Key':PARSE_CREDENTIALS.REST_API_KEY
+                        },
+                        params: params
+                    }
+                );
+            },
             create:function(classname, data, params){
                 return $http.post(url(classname),data,{
                     headers:{

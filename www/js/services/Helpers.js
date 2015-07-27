@@ -19,6 +19,24 @@ angular.module('saaps.services')
                 }else{
                     return false;
                 }
+            },
+            getEqual : function(array, key, value){
+                var ret = [];
+                if(array){
+                    for(var i =0 ; i<array.length ; i++){
+                        if(eval('array[i].'+key) === value){
+                            ret.push(array[i]);
+                        }
+                    }
+                }
+                return ret;
+            },
+            pointer : function(classname,objectId){
+                return {
+                    __type: "Pointer",
+                    className: classname,
+                    objectId: objectId
+                };
             }
         };
     }]);

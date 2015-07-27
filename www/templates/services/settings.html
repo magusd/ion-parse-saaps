@@ -1,0 +1,26 @@
+<ion-view view-title="Serviços">
+  <ion-content>
+    <h1>Settings</h1>
+    <div class="list">
+      <div class="item">
+        Limitar buscas a:
+      </div>
+      <div class="item range range-positive">
+        <i class="icon ion-home"></i>
+        <input type="range" name="distance" ng-model="settings.distance" min="0" max="60" value="33">
+        {{settings.distance}} km
+      </div>
+    </div>
+  </ion-content>
+
+  <div class="tabs ">
+    <a class="tab-item" ui-sref="app.services">
+      <i class="icon ion-search"></i>
+      Buscar
+    </a>
+    <a class="tab-item" ui-sref="app.searchSettings">
+      <i class="icon ion-gear-a"></i>
+      Preferências
+    </a>
+  </div>
+</ion-view>

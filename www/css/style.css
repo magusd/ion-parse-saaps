@@ -15,3 +15,42 @@ input.ng-dirty.ng-valid {
 .scroll {
     height: 100%;
 }
+
+.category-icon{
+    font-size: 90px;
+    color: #0D609A;
+}
+.category-text{
+    color: #0D609A;
+    font-weight: bold;
+}
+
+
+.list .item.item-accordion {
+    line-height: 38px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+    line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+    display: block !important;
+}
+
+.subcategory-text{
+    color: #125B9A;
+    font-weight: bold;
+}
+
+.subcategory-item-text{
+    color: #428BCA;
+    text-decoration: none;
+}
+
+.category-header{
+    font-size: 50px;
+    color: orange;
+}

@@ -1,0 +1,42 @@
+<ion-view view-title="Pedido de Acesso">
+    <ion-content>
+
+        <!-- Request Form -->
+        <div class="list">
+            <div class="item">
+                Serviços Prestados
+            </div>
+            <div class="item item-icon-right" ng-repeat="item in formData.items">
+                <a ng-click="toggleItem(item)" class="icon ion-close-circled assertive"></a>
+                {{item.subcategory.name}} - {{item.name}}
+            </div>
+            <div class="item" ng-show="display.cat || display.sub || display.item">
+                <div class="list card">
+                    <div ng-show="display.cat" ng-repeat="cat in categories" ng-click="showSub(cat)" class="item item-icon-left">
+                            <i class="icon {{cat.icon}}"></i>
+                            {{cat.name | capitalize}}
+                    </div>
+                    <div ng-show="display.sub" href="#" class="item item-icon-left" ng-repeat="sub in category.subcategories" ng-click="showItems(sub)">
+                        <i class="icon"></i>
+                        {{sub.name | capitalize}}
+                    </div>
+                    <div ng-show="display.item" href="#" class="item item-icon-left" ng-repeat="item in subcategory.items"
+                         ng-click="toggleItem(item)" ng-class="{active : isActive(item)}">
+                        <i class="icon"></i>
+                        {{item.name | capitalize}}
+                    </div>
+                </div>
+            </div>
+            <div class="item item-icon-left" ng-click="showCats()">
+                <i class="icon ion-plus-circled"></i>
+                Adicionar Serviço
+            </div>
+
+            <div class="item">
+                <a class="button button-block button-positive" ng-click="requestAccess()">
+                    Salvar
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

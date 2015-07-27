@@ -1,0 +1,55 @@
+<ion-view view-title="Prestador">
+    <ion-content>
+
+        <!-- Request Form -->
+        <div class="list" ng-show="!isProvider && !hasRequestedProvider">
+            <div class="item">
+                <h1>Acesso Restrito</h1>
+            </div>
+            <div class="item item-body">
+                <p>
+                    Para acessoar o painel de prestador de serviço você precisa solicitar através do formulário abaixo.
+                </p>
+                <p>
+                    Escolha os tipos de serviço que você atende e nós entraremos em contato.
+                </p>
+            </div>
+            <div class="item">
+                <a ui-sref="app.providerAccessRequest" class="button button-block button-positive">
+                    Solicitar acesso
+                </a>
+            </div>
+        </div>
+
+        <!-- Form pending -->
+        <div class="list" ng-show="!isProvider && hasRequestedProvider">
+            <div class="item">
+                Pedido enviado
+            </div>
+            <div class="item item-select">
+                <p>Sua solicitação está</p>
+                <select disabled>
+                    <option value="p">Pendente</option>
+                    <option value="a">Análise</option>
+                    <option value="c">Cancelada</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Form approved -->
+        <div class="list" ng-show="isProvider">
+            <div class="item">
+                Buscar Serviços
+            </div>
+            <div class="item">
+                Consultar Orçamentos
+            </div>
+            <div class="item">
+                Outras opções
+            </div>
+        </div>
+
+
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,32 @@
+<ion-view view-title="Serviços">
+    <ion-content ng-init="index()">
+        <ion-list ng-form name="$parent.requestForm">
+            <ion-item>
+                <h1>Pedido de Serviço</h1>
+            </ion-item>
+            <ion-item class="category-header">
+                <i class="icon {{category.icon}}"></i> {{item.name | capitalize}}
+            </ion-item>
+            <ion-item class="item-input icon-left">
+                <span class="input-label">Título:</span>
+                <input type="text" name="title" ng-model="requestData.title" required/>
+            </ion-item>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Endereço
+                </div>
+                <select ng-model="requestData.address" name="address" required>
+                    <option ng-repeat="addr in addresses" value="{{addr}}">{{addr.nick}}</option>
+                </select>
+            </label>
+            <ion-item class="item-input">
+                <span class="input-label">Descrição:</span>
+                <textarea cols="30" rows="10" name="description" ng-model="requestData.description" required></textarea>
+            </ion-item>
+            <ion-item>
+                <button ng-click="save()" class="button button-block button-positive" type="salvar">Enviar</button>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

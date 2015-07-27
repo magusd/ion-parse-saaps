@@ -50,3 +50,12 @@ angular.module('saaps', ['ionic', 'saaps.controllers','saaps.services','ui.utils
 
 angular.module('saaps.controllers',[]);
 angular.module('saaps.services',[]);
+
+
+angular.module('saaps').filter('capitalize', function() {
+    return function(input, scope) {
+        if (input != null || input != undefined)
+            input = input.toLowerCase();
+        return input.substring(0,1).toUpperCase()+input.substring(1);
+    }
+});

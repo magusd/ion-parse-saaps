@@ -1,0 +1,39 @@
+<ion-view view-title="Serviços">
+    <ion-content ng-init="index()">
+        <ion-list>
+            <ion-item class="category-header">
+                <i class="icon {{category.icon}}"></i> {{category.name | capitalize}}
+            </ion-item>
+            <div ng-repeat="sub in category.subcategories">
+                <ion-item class="subcategory-text"
+                          ng-click="toggleGroup(sub)"
+                          ng-class="{active: 1 || isGroupShown(sub)}">
+                    <i class="icon" ng-class="isGroupShown(sub) ? 'ion-arrow-down-b' : 'ion-arrow-right-b'"></i>
+                    &nbsp;
+                    {{sub.name | capitalize}}
+                </ion-item>
+                <ion-item class="item-accordion item-icon-left"
+                          ng-repeat="item in sub.items"
+                          ng-show="isGroupShown(sub)">
+
+                    <a href="#/app/services/create/{{category.objectId}}/{{item.objectId}}" class="subcategory-item-text">{{item.name}}</a>
+                </ion-item>
+            </div>
+        </ion-list>
+
+    </ion-content>
+
+
+
+
+    <div class="tabs ">
+        <a class="tab-item" ui-sref="app.services">
+            <i class="icon ion-search"></i>
+            Buscar
+        </a>
+        <a class="tab-item" ui-sref="app.searchSettings">
+            <i class="icon ion-gear-a"></i>
+            Preferências
+        </a>
+    </div>
+</ion-view>

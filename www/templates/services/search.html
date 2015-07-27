@@ -1,0 +1,31 @@
+<ion-view view-title="Serviços">
+    <ion-content style="background-color:#E3E7E8;">
+        <div style="background-color:#fff;">
+            <h3>Hoje é dia {{todayString}}</h3>
+            <h1>{{saudation}}, {{user.name}}</h1>
+        </div>
+
+        <div class="row" ng-repeat="row in categoryRows">
+            <div class="col" ng-repeat="category in row">
+                <div class="text-center" ng-show="category">
+                        <a href="#/app/services/{{category.objectId}}" class="category-icon icon {{category.icon || 'ion-search'}}"></a><br/>
+                        <p class="category-text">{{category.name | uppercase}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+
+
+
+    <div class="tabs ">
+        <a class="tab-item" ui-sref="app.services">
+            <i class="icon ion-search"></i>
+            Buscar
+        </a>
+        <a class="tab-item" ui-sref="app.searchSettings">
+            <i class="icon ion-gear-a"></i>
+            Preferências
+        </a>
+    </div>
+</ion-view>
